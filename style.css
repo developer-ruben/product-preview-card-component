@@ -1,0 +1,227 @@
+/* FONTS */
+
+@font-face {
+  font-style: normal;
+  font-weight: 500;
+  src: url("./assets/fonts/Montserrat/static/Montserrat-Medium.ttf");
+  font-family: "Montserrat";
+}
+
+@font-face {
+  font-style: normal;
+  font-weight: 700;
+  src: url("./assets/fonts/Montserrat/static/Montserrat-Bold.ttf");
+  font-family: "Montserrat";
+}
+
+@font-face {
+  font-style: normal;
+  font-weight: 700;
+  src: url("./assets/fonts/Fraunces/static/Fraunces_9pt-Bold.ttf");
+  font-family: "Fraunces";
+}
+
+/* VARIABLES */
+
+:root {
+  --clr-dark-cyan: 158, 36%, 37%;
+  --clr-very-dark-cyan: 158, 42%, 18%;
+  --clr-cream: 30, 38%, 92%;
+  --clr-very-dark-blue: 212, 21%, 14%;
+  --clr-dark-grayish-blue: 228, 12%, 48%;
+  --clr-white: 0, 0%, 100%;
+
+  --text-preset-1-size: 3.2rem;
+  --text-preset-1-height: 1;
+  --text-preset-2-size: 1.4rem;
+  --text-preset-2-height: 2.3rem;
+  --text-preset-3-size: 1.2rem;
+  --text-preset-3-height: normal;
+}
+
+/* RESET */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+img {
+  max-width: 100%;
+}
+
+input,
+button,
+textarea {
+  font: inherit;
+}
+
+/* GENERAL */
+
+body {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  background-color: hsl(var(--clr-cream));
+  padding: 1.6rem;
+  min-height: 100vh;
+  color: hsl(var(--clr-dark-grayish-blue));
+  font-weight: 500;
+  font-size: var(--text-preset-2-size);
+  font-family: "Montserrat";
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+/* UTILITY */
+
+.sr-only:not(:focus):not(:active) {
+  clip: rect(0 0 0 0);
+  position: absolute;
+  clip-path: inset(50%);
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* CARD */
+
+.card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  border-radius: 1rem;
+  background-color: hsl(var(--clr-white));
+  width: 100%;
+  max-width: 600px;
+  overflow: hidden;
+}
+
+.card__image {
+  display: block;
+}
+
+.card__content {
+  padding: 0 3.2rem;
+}
+
+.card__category {
+  display: inline-block;
+  margin-bottom: 2rem;
+  font-size: var(--text-preset-3-size);
+  line-height: var(--text-preset-3-height);
+  letter-spacing: 0.5rem;
+  text-transform: uppercase;
+}
+
+.card__title {
+  margin-bottom: 2.4rem;
+  color: hsl(var(--clr-very-dark-blue));
+  font-size: var(--text-preset-1-size);
+  line-height: var(--text-preset-1-height);
+  font-family: "Fraunces", serif;
+}
+
+.card__text {
+  margin-bottom: 2.9rem;
+  line-height: var(--text-preset-2-height);
+}
+
+.card__prices {
+  display: flex;
+  align-items: center;
+  gap: 1.9rem;
+  margin-bottom: 3rem;
+}
+
+.card__price--new {
+  color: hsl(var(--clr-dark-cyan));
+  font-weight: 700;
+  font-size: var(--text-preset-1-size);
+  line-height: var(--text-preset-1-height);
+  font-family: "Fraunces", serif;
+}
+
+.card__price--old {
+  font-size: 1.3rem;
+  line-height: 2.3rem;
+}
+
+.card__button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.161rem;
+  transition: background-color 0.3s ease-in-out;
+  border: 0;
+  border-radius: 0.8rem;
+  background-color: hsl(var(--clr-dark-cyan));
+  padding: 1.5rem;
+  width: 100%;
+  color: hsl(var(--clr-white));
+  font-weight: 700;
+  font-size: var(--text-preset-2-size);
+}
+
+.card__button:hover {
+  cursor: pointer;
+  background-color: hsl(var(--clr-very-dark-cyan));
+}
+
+/* ATTRIBUTION */
+
+.attribution {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  border-top-right-radius: 1rem;
+  background-color: hsl(var(--clr-white));
+  padding: 0.8rem;
+  font-size: 1rem;
+}
+
+.attribution__link {
+  color: hsl(var(--clr-dark-cyan));
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.attribution__link:hover {
+  text-decoration: underline;
+}
+
+/* MEDIA QUREIES */
+
+@media screen and (max-width: 1215px) {
+  .attribution {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .card {
+    grid-template-columns: 1fr;
+    max-width: 343px;
+  }
+
+  .card__image {
+    height: auto;
+  }
+
+  .card__content {
+    padding: 2.4rem;
+  }
+}
